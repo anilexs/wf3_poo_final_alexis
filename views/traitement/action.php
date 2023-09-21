@@ -23,3 +23,28 @@ if(isset($_POST['addContest'])){
 
     Contest::addContest($game, $start_date);
 }
+
+if(isset($_POST['addMatch'])){
+    $member = htmlspecialchars($_POST['member']);
+    $match_id = htmlspecialchars($_POST['match_id']);
+
+    Contest::addContest($member, $match_id);
+}
+
+if(isset($_POST['delet'])){
+    $id_player = htmlspecialchars($_POST['player_id']);
+    $match_id = htmlspecialchars($_POST['match_id']);
+    Player::deletePlayer($id_player, $match_id);
+}
+
+if(isset($_POST['joinMatch'])){
+    $id_player = htmlspecialchars($_POST['id_player']);
+    $match_id = htmlspecialchars($_POST['match_id']);
+    Contest::joinMatch($id_player, $match_id);
+}
+
+if(isset($_GET['win_id_player'])){
+    $win_id_player = htmlspecialchars($_GET['win_id_player']);
+    $id_contest = htmlspecialchars($_GET['contest_id']);
+    Contest::win_id_player($win_id_player, $id_contest);
+}

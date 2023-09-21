@@ -24,4 +24,16 @@ class Player{
             echo $e->getMessage();
         }
     }
+    
+    public static function deletePlayer($player_id, $match_id){
+        $db = Database::dbConnect();
+
+        $request = $db->prepare("DELETE FROM `player_contest` WHERE `player_id` = ? AND `id_player_contest` = ?");
+        try{
+            $request->execute(array($player_id, $match_id));
+        }catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
+
 }

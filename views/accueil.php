@@ -2,6 +2,7 @@
 require_once "../model/playerModel.php"; 
 require_once "../model/gameModel.php"; 
 require_once "../model/contestModel.php"; 
+$dateActuelle = time();
 $playerList = Player::playerList();
 $gameList = Game::gameList();
 $contestList = Contest::contestList();
@@ -59,8 +60,11 @@ require_once "inc/header.php";
                         </tr>
             </thead>
             <tbody>
-                <?php foreach ($contestList as $contes){ ?>
-                        <tr>
+                <?php foreach ($contestList as $contes){ 
+                    $timestampDB = strtotime($contes['start_date']);?>
+                        <tr class="<?php if(!($contes['winner_id'] == null) || ($timestampDB  < $dateActuelle)){
+                                            echo "gray";
+                                        }?>">
                             <td><?= $contes['title']; ?></td>
                             <td><?= $contes['nombre_de_joueurs']; ?>/<?= $contes['max_player']; ?></td>
                             <td><?= $contes['start_date']; ?></td>
