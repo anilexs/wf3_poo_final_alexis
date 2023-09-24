@@ -9,7 +9,6 @@ $playerList = Player::playerList();
 require_once "inc/header.php"; 
 $dateActuelle = time();
 $timestampDB = strtotime($contestMatch['start_date']);
-var_dump($playerContest);
 ?>
 <title>Document</title>
 <?php require_once "inc/nav.php"; ?>
@@ -26,7 +25,7 @@ var_dump($playerContest);
         <span class="red">date deja passer</span>
     <?php }
 
-    if($contestMatch['min_players'] < $contestMatch['max_player'] && !($timestampDB  < $dateActuelle)){ ?>
+    if($contestMatch['nombre_de_joueurs'] < $contestMatch['max_player'] && !($timestampDB  < $dateActuelle)){ ?>
 
         <form action="traitement/action.php" method="post"> 
             <select name="id_player">

@@ -67,7 +67,7 @@ public static function win_id_player($win_id_player, $id_contest) {
     $request = $db->prepare("UPDATE contest SET winner_id = ? WHERE id_contest = ?");
     try {
         $request->execute(array($win_id_player, $id_contest));
-        // header("Location: http://localhost/wf3_poo_final_alexis/accueil");
+        header("Location: http://localhost/wf3_poo_final_alexis/accueil");
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
