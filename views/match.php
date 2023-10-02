@@ -15,7 +15,7 @@ $timestampDB = strtotime($contestMatch['start_date']);
     <?php 
     if(($contestMatch['nombre_de_joueurs'] < $contestMatch['max_player'])){ ?>
         <span>le nombre de joueur n’est pas suffisant</span>
-        <?php } else if($contestMatch['min_players'] = $contestMatch['max_player']){ ?>
+        <?php } else { ?>
         <span class="red">le nombre de joueur et trop important</span>
     <?php }
     
