@@ -29,6 +29,7 @@ class Player{
         $db = Database::dbConnect();
 
         $request = $db->prepare("DELETE FROM `player_contest` WHERE `player_id` = ? AND `id_player_contest` = ?");
+        header("Location: http://localhost/wf3_poo_final_alexis/accueil");
         try{
             $request->execute(array($player_id, $match_id));
         }catch(PDOException $e){
